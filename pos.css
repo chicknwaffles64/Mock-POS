@@ -1,20 +1,34 @@
 :root{
-    --font: 35px;
+    --font: 32px;
+    --backdrop: #010a28;
+    --topmargin: 182px;
+    background-color: var(--backdrop);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
-#orderlist{
+#top{
     position: absolute;
-    bottom: 530px;
-    left: 400px;
-    width: 700px;
+    top: var(--topmargin);  
+    left: 150px;
+    width: 640px;
     display: flex;
     flex-direction: column;
 }
+#bluebar{
+    background-color: rgb(12, 12, 171);
+    font-size: 24px;
+}
+#orderlist{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    background-color: white;
+    color: black;
+}
 order {
-    padding: 15px;
-    font-size: 20px;
+    padding: 10px;
+    font-size: 15px;
     font-family: Arial, Helvetica, sans-serif, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-style: italic;
-    border: 2px solid #00000079;
 }
 order.correct{
     background-color: lightgreen;
@@ -24,51 +38,132 @@ order.wrong{
     background-color: rgb(255, 76, 76);
     opacity: 50%;
 }
-#textbox{
-    position: absolute;
-    bottom: 470px;
-    left: 400px;
-    border: 3px solid #000000;
-    background-color: rgb(224, 233, 230);
-    width: 400px;
-    font-size: 25px;
 
-}
 #main{
     position: absolute;
     bottom: 70px;
-    left: 400px;
+    left: 150px;
     display: flex;
+    gap: 5px;
 }
-#numpad{
-
-    width: 270px;
+#left{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+    width: 350px;
     justify-content: space-evenly;
-    gap: 7px;
-    border: 3px solid #00000000;
+    border: solid 3px black;
+}
+.leftboxes{
+    border-radius: 5px;
+    box-shadow: inset -4px 4px 2px #ffffff3c, inset 4px -4px 2px black;
+    flex-grow: 1;
+}
+    #textbox{
+        position: relative;
+        width: 85%;
+        top: 45%;
+        font-size: 22px;
+
+        border: 3px solid #000000;
+        background-color: rgb(224, 233, 230);
+    }
+
+#numpad{
+    display: grid;
+    grid-template-columns: repeat(4, 64px);
+    grid-auto-rows: 50px;
+    gap: 8px;
+    text-align: center;
 }
 
+#clear{
+    grid-column: span 2;
+    font-size: var(--font);
+    background-color: rgb(187, 27, 3);
+    color: black;
+}
+#qty{
+    font-size: calc(0.8*var(--font));
+    padding-left: 8px;
+    background-color: #00d5e4;
+    color: black;
+}
+#enter{
+    grid-column: span 2;
+    font-size: calc(1*var(--font));
+    background-color: #fff200;
+    color: black;
+}
 .numpad_keys{
-    display: flex;
-    flex-basis: 10%;
-    padding: 25px;
+    grid-column:span 1;
+    grid-row: span 1;
+    justify-content: center;
+    padding: calc(0.5*var(--font));
+    padding-top: calc(0.2*var(--font));
+    padding-bottom: calc(0.2*var(--font));
+
+    
     font-size: var(--font);
     font-weight: 600;
-
-    background-color: #00989b;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+    
+    border-radius: 5px;
+    box-shadow: inset -4px 4px 2px #ffffff3c, inset 4px -4px 1px black;
+    background-color: #0c3a9d;
     color: white;
 }
 
-#enter{
-    position:relative;
-    width: 45px;
-    height: 90px;
-    top: 200px;
+#rightside{
+    position: absolute;
+    right: 360px;
+    top: var(--topmargin);
+}
+#righttop{
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    grid-auto-rows: 60px;
+    gap: 5px
+}
+.righttop-square{
+    grid-column: span 1;
+    grid-row: span 1;
+    border-radius: 5px;
+    box-shadow: inset -4px 4px 2px #ffffff3c, inset 4px -4px 1px black;
+
+    color: black;
+    font-size: calc(0.4*var(--font));
+    font-weight: 600;
+    text-align: center;
+    padding-top: 10px;
+}
+
+#rightbot{
+    position: relative;
+    display: grid;
+    top: 5px;
+    grid-template-columns: repeat(4, 76px);
+    grid-auto-rows: 64px;
+    gap: 5px
+}
+.rightbot-square{
+    grid-column: span 1;
+    grid-row: span 1;
+    border-radius: 5px;
+    background-color: #0c3a9d;
+    box-shadow: inset -4px 4px 2px #ffffff3c, inset 4px -4px 1px black;
+}
+
+#total{
+    grid-column: span 1;
+    grid-row: span 2;
+    border-radius: 5px;
+    background-color: #e2d70b;
+    box-shadow: inset -4px 4px 2px #ffffff3c, inset 4px -4px 1px black;
+
     font-size:20px;
-    padding-top:70px;
-    padding-left: 10px;
+    padding-top:50px;
+    text-align: center;
+    font-weight: 700;
+    background-color: rgb(255, 242, 0);
+    color: black;
 }
