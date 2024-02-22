@@ -2,6 +2,15 @@ const numpad = document.getElementById("numpad")
 const enter = document.getElementById("enter")
 const textbox = document.getElementById('textbox')
 const orderlist = document.getElementById('orderlist')
+
+function newOrder() {
+    index = Math.floor(Math.random() * products.length)
+    console.log(`incoming order: ${products[index]}`)
+    const letter = document.createElement("order")
+    orderlist.appendChild(letter)
+    letter.textContent = products[index][0]
+}
+
 const products = [
     ["Chocolate Cov.- Almonds", 610],
     ["Chocolate Cov.- Almonds 73% (Dark)", 647],
@@ -32,7 +41,7 @@ const products = [
     ["Chocolate Peebles",538],
     ["Coffee Crisp Thins", 3416],
     ["Crunchetti Almond Clstr - Dark",3570],
-    ["Crunchetti Almond Clstr - Dark",3569],
+    ["Crunchetti Almond Clstr - Milk",3569],
     ["Chocolate Drops - Cookies 'N Creme",767],
     ["Kit Kat Minis",3311],
     ["M&M's - Caramel",3103],
@@ -51,7 +60,7 @@ const products = [
     ["Reese's PB Cups Mini",3102],
     ["Rolo Mini", 2721],
     ["Rosebuds", 544],
-    ["Rosebuds", 516],
+    ["Rosebuds Dark", 516],
     ["Sea Salt Bites", 2722],
     ["Sea Salt Caramels", 2539],
     ["Skor Bar", 636],
@@ -122,7 +131,7 @@ const products = [
     ["Buckwheat flour- Dark",321],
     ["Bread Mix - Sourdough", 240],
     ["Bread Mix - White", 346],
-    ["Bread Mix - White", 347],
+    ["Bread Mix - Whole Wheat", 347],
     ["Cake & Pastry Mix", 311],
     ["Corn Flour", 278],
     ["Durum Semolina",335],
@@ -165,14 +174,14 @@ const products = [
     ["Almonds - Marcona (spanish)",158],
     ["Sunflower nuts - hulled raw",139],
     ["Sunflower nuts - inshell R&S",136],
-    ["Mixed Nuts - Deluxe Dry R, NS/NP",119],
+    ["Mixed Nuts - Deluxe NS",119],
     
     //BEANS
     ["kidney beans", 407],
     
     //TOTES/BAKING (1700s)
     ["Butterscotch chips", 1762],
-    ["Chocolate chips - milk",1811],
+    ["Chocolate chips - white",1811],
     ["Chocolate Squares - Semi Sweet", 1770],
     ["Chocolate Squares - White", 1795],
         //WAFERS (1800s)
@@ -217,32 +226,33 @@ const products = [
     ["Coffee Whitener", 1226],
     ["Buttermilk Non Instant Powder", 1228],
 ]
-function newOrder() {
-    index = Math.floor(Math.random() * products.length)
-    console.log(`incoming order: ${products[index]}`)
-    const letter = document.createElement("order")
-    orderlist.appendChild(letter)
-    letter.textContent = products[index][0]
-}
+
 //start of program
 var index = 0
 newOrder()
 
 numpad.addEventListener('click', (e) => {
-    if (e.target.id == "numpad") return
-    textbox.value += e.target.textContent
-})
-
-enter.addEventListener('click', () => {
-    const currentOrder = orderlist.lastChild
-    if (textbox.value == products[index][1]) { 
-        currentOrder.classList.add('correct') 
+    if (!isNaN(e.target.id)) {
+        textbox.value += e.target.textContent
+        return
     }
-    else {
-        currentOrder.classList.add('wrong')
+    switch(e.target.id) {
+        case 'clear':
+            textbox.value = ""
+            break
+        
+        case 'enter':
+            const currentOrder = orderlist.lastChild
+            if (textbox.value == products[index][1]) { 
+                currentOrder.classList.add('correct') 
+            }
+            else {
+                currentOrder.classList.add('wrong')
+            }
+            currentOrder.textContent = products[index][0] + ' - ' + products[index][1]
+            newOrder()
+            if (orderlist.children.length > 5) orderlist.removeChild(orderlist.children[0])
+            textbox.value = ""
+        break
     }
-    currentOrder.textContent = products[index][0] + ' - ' + products[index][1]
-    newOrder()
-    if (orderlist.children.length > 5) orderlist.removeChild(orderlist.children[0])
-    textbox.value = ""
 })
