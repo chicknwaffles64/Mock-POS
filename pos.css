@@ -6,13 +6,20 @@
     color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
-#top{
+#body{
     position: absolute;
     top: var(--topmargin);  
     left: 150px;
+    display: grid;
+    grid-template-columns: repeat(3, 330px);
+    grid-auto-rows: 300px;
+    background-color: rgba(255, 255, 255, 0.023);
+}
+#top{
     width: 640px;
     display: flex;
     flex-direction: column;
+    grid-row: span 1; grid-column: span 2;
 }
 #bluebar{
     background-color: rgb(12, 12, 171);
@@ -40,11 +47,9 @@ order.wrong{
 }
 
 #main{
-    position: absolute;
-    bottom: 70px;
-    left: 150px;
     display: flex;
     gap: 5px;
+    grid-row: span 1; grid-column: span 2;
 }
 #left{
     display: flex;
@@ -72,8 +77,8 @@ order.wrong{
 #numpad{
     display: grid;
     grid-template-columns: repeat(4, 64px);
-    grid-auto-rows: 50px;
-    gap: 8px;
+    grid-auto-rows: 52px;
+    gap: 9px;
     text-align: center;
 }
 
@@ -114,10 +119,9 @@ order.wrong{
 }
 
 #rightside{
-    position: absolute;
-    right: 360px;
-    top: var(--topmargin);
+    grid-row: span 2; grid-column: span 1;
 }
+
 #righttop{
     display: grid;
     grid-template-columns: repeat(5, 60px);
