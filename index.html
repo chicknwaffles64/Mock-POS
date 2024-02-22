@@ -7,11 +7,29 @@
     <link rel="stylesheet" href="pos.css">
 </head>
 <body>
-    <div id="orderlist">
+    <div id="top">
+        <div id="orderlist"></div>
+        <div id="bluebar">
+            <span>Total</span>
+            <div id="totaldisplay" style="float: right; padding-right: 20px;">11.50</div>
+        </div>
     </div>
-    <input id="textbox"type="text"value=""></input>
+
     <div id="main">
+        <div id="left">
+            <div class="leftboxes">
+                <input id="textbox"type="text"value=""></input>
+            </div>
+            <div class="leftboxes" style="display: flex; justify-content: center; font-weight: 600; font-size: 20px;">
+                <div style="position: relative; top: 50%; white-space: pre">Total                        </div>
+                <div style="position: relative; top: 50%;">0.00</div>
+            </div>
+        </div>
         <div id="numpad">
+            <div class="numpad_keys" id="clear">CLEAR</div>
+            <div class="numpad_keys" id="qty">QTY</div>
+            <div class="numpad_keys" style="background-color: white; grid-row: span 2;"></div>
+            
             <div class="numpad_keys">7</div>
             <div class="numpad_keys">8</div>
             <div class="numpad_keys">9</div>
@@ -19,16 +37,72 @@
             <div class="numpad_keys">4</div>
             <div class="numpad_keys">5</div>
             <div class="numpad_keys">6</div>
+            <div class="numpad_keys" style="background-color: white; grid-row: span 2;"></div>
 
             <div class="numpad_keys">1</div>
             <div class="numpad_keys">2</div>
             <div class="numpad_keys">3</div>
 
             <div class="numpad_keys">0</div>
-            <div class="numpad_keys" style="flex-basis: 42%;">00</div>
+            <div class="numpad_keys">00</div>
+            <div class="numpad_keys" id="enter">ENTER</div>
         </div>
-        <div class="numpad_keys" id="enter">Enter</div>
     </div>
+    
+    <div id="rightside">
+        <div id="righttop">
+            <div style="background-color: #180050;"class="righttop-square"></div>
+            <div style="background-color: #180050;"class="righttop-square"></div>
+            <div style="background-color: #180050;"class="righttop-square"></div>
+            <div style="background-color: #180050;"class="righttop-square"></div>
+            <div style="background-color: #180050;"class="righttop-square"></div>
+    
+            <div style="background-color: #e2d70b;"class="righttop-square"></div>
+            <div style="background-color: #e2d70b;"class="righttop-square"></div>
+            <div style="background-color: #e2d70b;"class="righttop-square"></div>
+            <div style="background-color: #e2d70b;"class="righttop-square"></div>
+            <div style="background-color: #e2d70b;"class="righttop-square"></div>
+    
+            <div style="background-color: #999999;"class="righttop-square"></div>
+            <div style="background-color: #999999;"class="righttop-square"></div>
+            <div style="background-color: #180050;"class="righttop-square"></div>
+            <div style="background-color: #00d5e4;;"class="righttop-square"></div>
+            <div style="background-color: #999999;"class="righttop-square"></div>
+    
+            <div style="background-color: #9f1111;"class="righttop-square">ITEM CORR</div>
+            <div style="background-color: #9f1111;"class="righttop-square">VOID</div>
+            <div style="background-color: #999999;"class="righttop-square"></div>
+            <div style="background-color: #9f1111;"class="righttop-square">REFUND</div>
+            <div style="background-color: #9f1111;"class="righttop-square">ALL VOID</div>
+    
+            <div style="background-color: #e2d70b;"class="righttop-square">DISC</div>
+            <div style="background-color: #e2d70b;"class="righttop-square">OTHER DISC</div>
+            <div style="background-color: #e2d70b;"class="righttop-square"></div>
+            <div style="background-color: #e2d70b;"class="righttop-square"></div>
+            <div style="background-color: #e2d70b;"class="righttop-square"></div>
+    
+        </div>
+        <div id="rightbot">
+            <div class="rightbot-square"></div>
+            <div class="rightbot-square"></div>
+            <div class="rightbot-square"></div>
+            <div class="rightbot-square"></div>
+
+            <div class="rightbot-square"></div>
+            <div class="rightbot-square"></div>
+            <div class="rightbot-square"></div>
+            <div class="rightbot-square"></div>
+
+            <div id="total">Total</div>
+            <div class="rightbot-square"></div>
+            <div class="rightbot-square"></div>
+            <div class="rightbot-square"></div>
+            <div class="rightbot-square"></div>
+            <div class="rightbot-square"></div>
+            <div class="rightbot-square"></div>
+        </div>
+    </div>
+    
     <script type="module" src="pos.js"></script>
 </body>
 </html>
